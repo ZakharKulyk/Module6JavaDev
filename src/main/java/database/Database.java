@@ -16,15 +16,14 @@ public class Database {
 
     private void initDb() {
 
-
-
-        String URL = "jdbc:mysql://127.0.0.1:3306/test";
-        String PASSWORD = "Zakhar2005";
-        String USER = "root";
+        String URL = "jdbc:h2:~/test";
+        String USER = "sa";
+        String PASSWORD ="";
 
         try {
-            connection = DriverManager.getConnection(URL, USER, PASSWORD);
+            connection = DriverManager.getConnection(URL,USER,PASSWORD);
         } catch (SQLException e) {
+            e.printStackTrace();
             throw new RuntimeException("Failed to connect");
         }
         System.out.println("Connection completed");
