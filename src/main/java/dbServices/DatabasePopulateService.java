@@ -18,9 +18,8 @@ public class DatabasePopulateService {
             StringBuilder stringBuilder = new StringBuilder();
             while ((line = bufferedReader.readLine())!=null){
                 stringBuilder.append(line);
-
                 if(line.endsWith(";")){
-                    connection.createStatement().executeUpdate(stringBuilder.toString());
+                    connection.prepareStatement(stringBuilder.toString()).executeUpdate();
                     stringBuilder.setLength(0);
                 }
             }

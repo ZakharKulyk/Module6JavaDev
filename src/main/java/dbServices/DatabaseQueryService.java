@@ -27,7 +27,7 @@ public class DatabaseQueryService {
         List<HighestPayedWorker> result = new ArrayList<>();
         String q = processSQLFile("sql/find_max_salary_worker.sql");
         try {
-            ResultSet resultSet = getConnection().createStatement().executeQuery(q);
+            ResultSet resultSet = getConnection().prepareStatement(q).executeQuery();
             while (resultSet.next()) {
                 HighestPayedWorker worker = new HighestPayedWorker();
 
@@ -46,7 +46,7 @@ public class DatabaseQueryService {
         String q = processSQLFile("sql/find_max_project_count_client.sql");
 
         try {
-            ResultSet resultSet = getConnection().createStatement().executeQuery(q);
+            ResultSet resultSet = getConnection().prepareStatement(q).executeQuery();
             while (resultSet.next()) {
                 MaxProjectCountClient maxProjectCountClient = new MaxProjectCountClient();
 
@@ -65,7 +65,7 @@ public class DatabaseQueryService {
         String q = processSQLFile("sql/find_longest_project.sql");
 
         try {
-            ResultSet resultSet = getConnection().createStatement().executeQuery(q);
+            ResultSet resultSet = getConnection().prepareStatement(q).executeQuery();
             while (resultSet.next()) {
                 LongestProjectDuration longestProjectDuration = new LongestProjectDuration();
 
@@ -84,7 +84,7 @@ public class DatabaseQueryService {
         String s = processSQLFile("sql/find_youngest_oldest_worker.sql");
 
         try {
-            ResultSet resultSet = getConnection().createStatement().executeQuery(s);
+            ResultSet resultSet = getConnection().prepareStatement(s).executeQuery();
             while (resultSet.next()) {
                 YoungestAndEldestWorker youngestAndEldestWorker = new YoungestAndEldestWorker();
                 youngestAndEldestWorker.setName(resultSet.getString("NAME"));
@@ -106,7 +106,7 @@ public class DatabaseQueryService {
         String q = processSQLFile("sql/print_project_prices.sql");
 
         try {
-            ResultSet resultSet = getConnection().createStatement().executeQuery(q);
+            ResultSet resultSet = getConnection().prepareStatement(q).executeQuery();
             while (resultSet.next()){
                AllProjectsCost allProjectsCost = new AllProjectsCost();
                allProjectsCost.setProjectId(resultSet.getInt("PROJECT_ID"));
