@@ -1,4 +1,4 @@
-package dbDto;
+package dbdto;
 
 public class AllProjectsCost {
     int projectId;

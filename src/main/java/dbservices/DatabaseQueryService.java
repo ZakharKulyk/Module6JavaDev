@@ -1,8 +1,8 @@
-package dbServices;
+package dbservices;
 
 
 import database.Database;
-import dbDto.*;
+import dbdto.*;
 
 
 import java.io.*;

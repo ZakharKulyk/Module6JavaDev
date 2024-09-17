@@ -1,9 +1,9 @@
-package dbQueryTest;
+package dbquerytest;
 
 
 
-import dbDto.*;
-import dbServices.DatabaseQueryService;
+import dbdto.*;
+import dbservices.DatabaseQueryService;
 
 import java.util.List;
 

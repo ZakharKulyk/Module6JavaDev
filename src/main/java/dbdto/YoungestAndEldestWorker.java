@@ -1,4 +1,4 @@
-package dbDto;
+package dbdto;
 
 import java.util.Date;
 

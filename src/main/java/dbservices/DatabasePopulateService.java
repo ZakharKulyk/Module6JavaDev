@@ -1,5 +1,4 @@
-package dbServices;
-
+package dbservices;
 
 import database.Database;
 
@@ -10,24 +9,20 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-
-public class DatabaseInitService {
-
+public class DatabasePopulateService {
     public static void main(String[] args) {
-        try (BufferedReader bufferedReader = new BufferedReader(new FileReader("sql/init_db.sql"))) {
+
+        try(BufferedReader bufferedReader = new BufferedReader(new FileReader("sql/populate_db.sql"))) {
             String line;
             Connection connection = Database.getInstance().getConnection();
             StringBuilder stringBuilder = new StringBuilder();
-            while ((line = bufferedReader.readLine())!=null) {
-                stringBuilder.append(line.trim());
+            while ((line = bufferedReader.readLine())!=null){
+                stringBuilder.append(line);
                 if(line.endsWith(";")){
                     connection.prepareStatement(stringBuilder.toString()).executeUpdate();
                     stringBuilder.setLength(0);
                 }
-
             }
-
-
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
@@ -35,7 +30,5 @@ public class DatabaseInitService {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
-
     }
 }

@@ -1,6 +1,4 @@
-package dbDto;
-
-import java.util.Date;
+package dbdto;
 
 public class LongestProjectDuration {
     String name;

@@ -1,4 +1,4 @@
-package dbDto;
+package dbdto;
 
 public class MaxProjectCountClient {
     private String name;
